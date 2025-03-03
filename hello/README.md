@@ -1,10 +1,5 @@
 ### Documentation for x86 Assembly Code
 
-#### **Author:** Raghavvram
-#### **Date:** 27-05-2025
-
----
-
 ##### **Section: .data**
 This section is used to define initialized data or constants.
 
