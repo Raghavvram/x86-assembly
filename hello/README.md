@@ -116,4 +116,4 @@ So, while you can technically change the order of the instructions, you must ens
 
 As long as `eax`, `ebx`, `ecx`, and `edx` are set before `int 0x80`, the system call should work correctly. This flexibility allows you to reorder the instructions to some extent, provided the final state of the registers is correct just before invoking the interrupt.
 
-If you need further assistance, feel free to ask! 😊
+
