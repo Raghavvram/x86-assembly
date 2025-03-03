@@ -1,5 +1,3 @@
---
-
 ### Documentation for x86 Assembly Code
 
 #### **Author:** Raghavvram
