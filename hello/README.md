@@ -39,6 +39,4 @@ This label marks the beginning of the program execution.
 - `mov ebx, 0`: Load the exit status `0` (success) into register `ebx`.
 - `int 0x80`: Trigger the interrupt `0x80` to make the system call, which terminates the program.
 
----
-
-This code writes the message "Hello, World !" to the standard output and then exits the program successfully. Let me know if you have any questions or need further explanations! 😊
+This code writes the message "Hello, World !" to the standard output and then exits the program successfully.
