@@ -1,6 +1,4 @@
-Here's the documentation for your x86 assembly code:
-
----
+--
 
 ### Documentation for x86 Assembly Code
 
