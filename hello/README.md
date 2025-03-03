@@ -82,6 +82,7 @@ In summary, each step sets up a critical parameter for the `sys_write` system ca
 
 ---
 
+## Why does the program has to follow this specific register order, can change the register order ?
 
 In x86 assembly programming, the specific registers used (`eax`, `ebx`, `ecx`, `edx`) have predefined roles in the context of system calls. The Linux operating system expects certain values to be in specific registers for each system call to work correctly. Here's why you must follow this order:
 
