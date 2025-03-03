@@ -40,3 +40,41 @@ This label marks the beginning of the program execution.
 - `int 0x80`: Trigger the interrupt `0x80` to make the system call, which terminates the program.
 
 This code writes the message "Hello, World !" to the standard output and then exits the program successfully.
+
+---
+
+### Why does the code has to follow this particular order ?
+
+The order of instructions in your code is crucial to correctly performing the `sys_write` system call. Each instruction sets up the necessary registers with the correct values before the interrupt (`int 0x80`) is triggered. Here's a detailed explanation:
+
+1. **System Call Number (Setting up `eax`):**
+   ```asm
+   mov eax, 4      ; syscall number for sys_write
+   ```
+   The `eax` register needs to hold the system call number for the `sys_write` function, which is `4`. This tells the operating system which system call you want to perform. If you do not set `eax` correctly, the system won't know you want to use `sys_write`.
+
+2. **File Descriptor (Setting up `ebx`):**
+   ```asm
+   mov ebx, 1      ; file descriptor 1 (standard output)
+   ```
+   The `ebx` register needs to hold the file descriptor. `1` represents standard output (usually the terminal). By setting `ebx` to `1`, you're specifying where the output should be sent. If you don't set this value, the system won't know where to write the data.
+
+3. **Message Pointer (Setting up `ecx`):**
+   ```asm
+   mov ecx, msg    ; pointer to the message to write
+   ```
+   The `ecx` register needs to hold the memory address (pointer) of the data to be written. In this case, it's the address of the `msg` string. If `ecx` does not point to the correct data, the system won't know what to write.
+
+4. **Message Length (Setting up `edx`):**
+   ```asm
+   mov edx, len    ; length of the message
+   ```
+   The `edx` register needs to hold the length of the data to be written. This ensures the system knows how many bytes to write. If `edx` is not set correctly, the system call might write the wrong amount of data.
+
+5. **Trigger the System Call (using `int 0x80`):**
+   ```asm
+   int 0x80        ; make the system call
+   ```
+   The `int 0x80` instruction triggers the interrupt to switch control to the kernel, which then performs the `sys_write` system call using the values in `eax`, `ebx`, `ecx`, and `edx`.
+
+In summary, each step sets up a critical parameter for the `sys_write` system call. The values in `eax`, `ebx`, `ecx`, and `edx` must be correctly assigned before the `int 0x80` instruction is executed. Any deviation or reordering could lead to incorrect behavior or failure of the system call.
