@@ -43,7 +43,7 @@ This code writes the message "Hello, World !" to the standard output and then ex
 
 ---
 
-### Why does the code has to follow this particular order ?
+## Why does the code has to follow this particular order ?
 
 The order of instructions in your code is crucial to correctly performing the `sys_write` system call. Each instruction sets up the necessary registers with the correct values before the interrupt (`int 0x80`) is triggered. Here's a detailed explanation:
 
