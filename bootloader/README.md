@@ -1,4 +1,4 @@
-Certainly! Let's break it down into detailed explanations:
+ detailed explanations:
 
 ---
 
