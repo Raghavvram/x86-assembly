@@ -1,7 +1,5 @@
 ## Detailed Explanations
 
----
-
 ### Explanation for Programmers:
 
 1. **`bits 16`**  
